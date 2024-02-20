@@ -3,7 +3,7 @@ import ProfileInfo from "../components/ProfileInfo";
 import Repos from "../components/Repos";
 import Search from "../components/Search";
 import SortRepos from "../components/SortRepos";
-import Spinner from "../components/Spinner";
+// import Spinner from "../components/Spinner";
 import toast from "react-hot-toast";
 
 const HomePage = () => {
@@ -16,7 +16,14 @@ const HomePage = () => {
   const getUserData = useCallback(async (username = "LaviniaTinca") => {
     setLoading(true);
     try {
-      const response = await fetch(`https://api.github.com/users/${username}`);
+      //just 60 requests/hour, 5000 requests/hour for authenticated requests
+      //so go to profile-> settings-> developer settings->personal access tokens -> classic -> generate
+      const response = await fetch(`https://api.github.com/users/${username}`, {
+        //is not working with the token
+        // headers: {
+        //   authorization: `token ${import.meta.env.VITE_GITHUB_API_KEY}`,
+        // },
+      });
       const userProfile = await response.json();
       setUserProfile(userProfile);
 
@@ -71,7 +78,7 @@ const HomePage = () => {
       <div className="flex gap-4 flex-col lg:flex-row justify-center items-start">
         {userProfile && !loading && <ProfileInfo userProfile={userProfile} />}
         {!loading && <Repos repos={repos} />}
-        <Spinner />
+        {/* <Spinner /> */}
       </div>
     </div>
   );
