@@ -18,3 +18,14 @@ npm run dev in the general folder to start the backend
 
 //TODO !! BUG !! user.controller -> token not working but works in explore.controller
                      -> i can't fetch the data from the api for the profile and routes but works for explore!
+
+
+
+//-----install passport
+npm install passport-github2 passport
+npm install express-session
+
+
+FRONTEND
+
+vite.config.js -> set the proxy so that we will have the path
