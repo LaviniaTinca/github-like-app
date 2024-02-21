@@ -5,7 +5,7 @@ import { PROGRAMMING_LANGUAGES } from "../utils/constants";
 import toast from "react-hot-toast";
 
 const Repo = ({ repo }) => {
-  const formattedDate = formatDate(repo.created_at);
+  const formattedDate = formatDate(repo?.created_at);
 
   const handleCloneClick = async (repo) => {
     try {
@@ -30,19 +30,19 @@ const Repo = ({ repo }) => {
           rel="noreferrer"
           className="flex items-center gap-2 text-lg font-semibold"
         >
-          {repo.name}
+          {repo?.name}
         </a>
         <span
           className="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5
 					py-0.5 rounded-full flex items-center gap-1"
         >
-          <FaRegStar /> {repo.stargazers_count}
+          <FaRegStar /> {repo?.stargazers_count}
         </span>
         <span
           className="bg-purple-100 text-purple-800 text-xs font-medium
 					 px-2.5 py-0.5 rounded-full flex items-center gap-1"
         >
-          <FaCodeFork /> {repo.forks_count}
+          <FaCodeFork /> {repo?.forks_count}
         </span>
         <span
           className="cursor-pointer bg-green-100 text-green-800 text-xs

@@ -1,0 +1,20 @@
+GENERAL
+in the root directory for both fe and be, create the package.json file
+npm init -y
+cls -> clear console
+
+npm i express cors mongoose dotenv
+
+MOVE gitignore from FE to general root so that all node_modules to be ignored
+in be folder create server.js file
+in package.json add manually a script for nodemon to listen backend/server.js
+add type: "module", to be able to use import, not require
+
+npm i nodemon --save-dev
+-> configure server.js
+
+npm run dev in the general folder to start the backend
+
+
+//TODO !! BUG !! user.controller -> token not working but works in explore.controller
+                     -> i can't fetch the data from the api for the profile and routes but works for explore!

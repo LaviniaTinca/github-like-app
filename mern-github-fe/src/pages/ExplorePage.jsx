@@ -13,20 +13,24 @@ const ExplorePage = () => {
     setLoading(true);
     setRepos([]);
     try {
-      // const res = await fetch("/api/explore/repos/" + language);
-      // const { repos } = await res.json();
-      // setRepos(repos);
+      // const res = await fetch(
+      //   `https://api.github.com/search/repositories?q=language:${language}&sort=stars&order=desc&per_page=10`,
+      //   {
+      //     //not working with the token
+      //     // headers: {
+      //     //   authorization: `token ${import.meta.env.VITE_GITHUB_API_KEY}`,
+      //     // },
+      //   }
+      // );
+      // const data = await res.json();
+      // setRepos(data.items);
+      //setSelectedLanguage(language);
+
       const res = await fetch(
-        `https://api.github.com/search/repositories?q=language:${language}&sort=stars&order=desc&per_page=10`,
-        {
-          //not working with the token
-          // headers: {
-          //   authorization: `token ${import.meta.env.VITE_GITHUB_API_KEY}`,
-          // },
-        }
+        `http://localhost:5000/api/explore/repos/${language}`
       );
-      const data = await res.json();
-      setRepos(data.items);
+      const { repos } = await res.json();
+      setRepos(repos);
       setSelectedLanguage(language);
     } catch (error) {
       toast.error(error.message);

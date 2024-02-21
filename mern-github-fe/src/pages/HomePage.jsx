@@ -29,6 +29,14 @@ const HomePage = () => {
 
       const repoResponse = await fetch(userProfile.repos_url);
       const repos = await repoResponse.json();
+
+      // const res = await fetch(
+      //   `http://localhost:5000/api/users/profile/${username}`
+      // );
+      // const { repos, userProfile } = res.json();
+      // console.log("res", res);
+      // console.log(userProfile, "userProfile in homepage");
+      //setUserProfile(userProfile);
       setRepos(repos);
       return { userProfile, repos };
     } catch (error) {
@@ -73,7 +81,7 @@ const HomePage = () => {
   return (
     <div className="m-4">
       <Search onsearch={onSearch} />
-      {repos.length > 0 && <SortRepos onSort={onSort} sortType={sortType} />}
+      {repos?.length > 0 && <SortRepos onSort={onSort} sortType={sortType} />}
 
       <div className="flex gap-4 flex-col lg:flex-row justify-center items-start">
         {userProfile && !loading && <ProfileInfo userProfile={userProfile} />}
