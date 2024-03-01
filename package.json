@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon mern-github-be/server.js"
+    "dev": "nodemon mern-github-be/server.js",
+    "build":"npm install && npm install --prefix mern-github-fe && npm run build --prefix mern-github-fe",
+    "start":"node mern-github-be/server.js"
   },
   "type": "module",
   "author": "",

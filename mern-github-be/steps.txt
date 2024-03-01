@@ -29,3 +29,16 @@ npm install express-session
 FRONTEND
 
 vite.config.js -> set the proxy so that we will have the path
+
+PRODUCTION
+-make changes in server.js
+-make changes in package.json:
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon mern-github-be/server.js",
+    //for production we need to install packages for both BE and FE, build the FE and we need a starting point:
+    "build":"npm install && npm install --prefix mern-github-fe && npm run build --prefix mern-github-fe",
+    "start":"node mern-github-be/server.js"
+  },
+-github OAUTH -> will give an error because now the callback is not on port 3000
+-> go to render.com
