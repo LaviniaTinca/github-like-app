@@ -50,5 +50,5 @@ export function formatDate(inputDateString) {
 }
 
 export const handleLoginWithGithub = () => {
-  window.open("http://localhost:5000/api/auth/github", "_self");
+  window.open("/api/auth/github", "_self");
 };
