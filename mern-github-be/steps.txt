@@ -41,4 +41,19 @@ PRODUCTION
     "start":"node mern-github-be/server.js"
   },
 -github OAUTH -> will give an error because now the callback is not on port 3000
--> go to render.com
+-> go to render.com -> dashboard -> new-> web service --->follow steps and deploy
+
+-> update github OAUTH homePage URLand callback with the deployed one
+-> add the last enviromental variable on render.com , the CLIENT_BASE-URL will be the deployed one now
+
+VERY IMPORTANT
+ in passport folder -> github.auth.js update the path with the deployed one
+
+new GitHubStrategy(
+    {
+      clientID: process.env.GITHUB_CLIENT_ID,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET,
+      callbackURL:
+        "https://github-like-app-a8cy.onrender.com/api/auth/github/callback",
+    },
+    ...)
